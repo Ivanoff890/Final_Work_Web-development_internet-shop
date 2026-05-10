@@ -1,0 +1,31 @@
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background: #3949ab;
+}
+
+.remove {
+  background: #e74c3c;
+}
+
+.remove:hover {
+  background: #c0392b;
+}
+
+.quantity {
+  min-width: 30px;
+  text-align: center;
+}
