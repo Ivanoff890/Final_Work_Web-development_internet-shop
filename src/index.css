@@ -10,7 +10,6 @@ body {
   color: #1a1a1a;
 }
 
-
 @media (max-width: 768px) {
   button {
     width: 100%;
@@ -20,4 +19,10 @@ body {
   input, textarea {
     font-size: 16px !important;
   }
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
 }

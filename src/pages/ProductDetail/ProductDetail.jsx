@@ -1,19 +1,21 @@
 import { useParams, Link } from 'react-router-dom';
-import { products } from '../../data/products';
-import { useCart } from '../../context/CartContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartActions';
 import styles from './ProductDetail.module.css';
 
 function ProductDetail() {
   const { id } = useParams();
-  const product = products.find(p => p.id === parseInt(id));
-  const { addToCart } = useCart();
+  const dispatch = useDispatch();
+  const product = useSelector(state =>
+    state.products.items.find(p => p.id === parseInt(id))
+  );
 
   if (!product) {
     return <div className={styles.notFound}>Товар не найден</div>;
   }
 
   const handleAddToCart = () => {
-    addToCart(product, 1);
+    dispatch(addToCart(product));
     alert('Товар добавлен в корзину!');
   };
 

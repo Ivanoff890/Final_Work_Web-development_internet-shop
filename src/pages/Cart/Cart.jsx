@@ -1,17 +1,20 @@
-import { useCart } from '../../context/CartContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart, updateCartQuantity } from '../../redux/cartActions';
 import CartItem from '../../components/CartItem/CartItem';
 import CartSummary from '../../components/CartSummary/CartSummary';
 import styles from './Cart.module.css';
 
 function Cart() {
-  const { cartItems, removeFromCart, updateQuantity, getTotalPrice } = useCart();
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.items);
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   if (cartItems.length === 0) {
     return (
       <div className={styles.empty}>
         <h1>Корзина пуста</h1>
         <p>Добавьте товары из каталога</p>
-        <a href="/" className={styles.link}>
+        <a href="/">
           <button className={styles.emptyButton}>Перейти в каталог</button>
         </a>
       </div>
@@ -25,12 +28,12 @@ function Cart() {
         <CartItem
           key={item.id}
           item={item}
-          onDecrease={() => updateQuantity(item.id, item.quantity - 1)}
-          onIncrease={() => updateQuantity(item.id, item.quantity + 1)}
-          onRemove={() => removeFromCart(item.id)}
+          onDecrease={() => dispatch(updateCartQuantity(item.id, item.quantity - 1))}
+          onIncrease={() => dispatch(updateCartQuantity(item.id, item.quantity + 1))}
+          onRemove={() => dispatch(removeFromCart(item.id))}
         />
       ))}
-      <CartSummary totalPrice={getTotalPrice()} />
+      <CartSummary totalPrice={totalPrice} />
     </div>
   );
 }
