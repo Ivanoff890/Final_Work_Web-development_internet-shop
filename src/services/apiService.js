@@ -6,7 +6,7 @@ const getAuthHeaders = () => {
   console.log('📤 Token being sent:', token ? token.substring(0, 50) + '...' : 'null');
   return {
     'Content-Type': 'application/json',
-    'Authorization': token ? `Bearer ${token}` : '',  // ← пробел после Bearer
+    'Authorization': token ? `Bearer ${token}` : '',  //
   };
 };
 

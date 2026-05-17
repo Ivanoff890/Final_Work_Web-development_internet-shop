@@ -23,10 +23,13 @@ function AdminOrders() {
   };
 
   const handleStatusChange = async (id, newStatus) => {
+    console.log('Changing order', id, 'to status', newStatus);
     try {
-      await apiService.updateOrderStatus(id, newStatus);
+      const result = await apiService.updateOrderStatus(id, newStatus);
+      console.log('Result:', result);
       loadOrders();
     } catch (err) {
+      console.error('Error:', err);
       setError(err.message);
     }
   };
