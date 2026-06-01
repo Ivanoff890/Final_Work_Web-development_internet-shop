@@ -31,7 +31,7 @@ cd microshop
 cd order_service
 uvicorn app:app --reload --port 8002
 
-## ДЗ 5: панель управления для администраторов магазина
+ДЗ 5: панель управления для администраторов магазина
 
 // 3 отдельных терминала //
 
@@ -97,7 +97,7 @@ npm run dev
 ///Запуск бэкенда (3 терминала)///
 1. Терминал 1 — Auth Service (8000)
 
-    cd C:\Users\OCT25\PycharmProjects\microshop
+    cd C:\Users\OCT__\PycharmProjects\microshop
 
     .venv\Scripts\activate
 
@@ -107,7 +107,7 @@ npm run dev
 
 2. Терминал 2 — Product Service (8001)
 
-    cd C:\Users\OCT25\PycharmProjects\microshop
+    cd C:\Users\OCT__\PycharmProjects\microshop
 
     .venv\Scripts\activate
 
@@ -117,7 +117,7 @@ npm run dev
 
 3. Терминал 3 — Order Service (8002)
 
-    cd C:\Users\OCT25\PycharmProjects\microshop
+    cd C:\Users\OCT__\PycharmProjects\microshop
 
     .venv\Scripts\activate
 
@@ -127,7 +127,7 @@ npm run dev
 
 ///Запуск фронтенда (терминал 4)///
 
-1. cd C:\Users\OCT25\PycharmProjects\frontend-shop_2
+1. cd C:\Users\OCT__\PycharmProjects\frontend-shop_2
 
 npm run dev   http://localhost:5173
 
